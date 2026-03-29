@@ -1,6 +1,6 @@
 $126bpm|Ebm|4/4$  
 $Ebm$&nbsp;$(Bb|C|Db)$  
-A diario me das  
+**A diario me das**  
 **Razones para olvidar**  
 **Las cosas que**  
 **Siempre causaste en mi**
