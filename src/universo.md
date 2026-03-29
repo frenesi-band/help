@@ -1,5 +1,4 @@
 $126  bpm|Ebm|4/4$
-
 $Ebm$  
 A diario me das  
 Razones para olvidar  
