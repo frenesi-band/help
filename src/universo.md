@@ -33,6 +33,8 @@ $A\flat 7$ | $B\flat 4$
 Paranoias van   
 Alimentando miedos
 
+---
+
 $E\flat m$ | $E\flat m7$ | $E\flat m6$ | $E\flat m$  
 $E\flat m$ | $E\flat m^{add9}$ | $E\flat m$ | $E\flat sus4$
 
@@ -41,6 +43,8 @@ $A\flat  7$ | $A\flat  7$ | $A\flat  7$ | $A\flat  7$
 $E\flat m$ | $E\flat m$ | $A\flat m$ | $B\flat m$ $(x6)$  
 
 $E\flat m$ ($B\flat $ | $C$ | $Db$) $(x4)$  
+
+---
 
 $E\flat m$ ($B\flat $ | $C$ | $Db$)  
 Te debo dejar  
