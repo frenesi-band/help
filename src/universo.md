@@ -1,5 +1,5 @@
-$126  bpm|Ebm|4/4$
-$Ebm$  
+$126bpm|Ebm|4/4$  
+$Ebm$ $(Bb|C|Db)$  
 A diario me das  
 Razones para olvidar  
 Las cosas que  
