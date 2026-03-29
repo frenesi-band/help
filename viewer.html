@@ -313,8 +313,21 @@ if (!file || !/\.md$/i.test(file)) {
       if (header && !header.querySelector('.page-subtitle')) {
         const subtitle = document.createElement('div');
         subtitle.className = 'page-subtitle';
-        subtitle.textContent = firstLine;
+        subtitle.innerHTML = marked.parseInline(firstLine);
         header.insertBefore(subtitle, header.querySelector('.page-divider'));
+        // Render KaTeX in subtitle
+        if (typeof renderMathInElement === 'function') {
+          renderMathInElement(subtitle, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '\\[', right: '\\]', display: true },
+              { left: '$', right: '$', display: false },
+              { left: '\\(', right: '\\)', display: false }
+            ],
+            throwOnError: false,
+            errorColor: '#f2a39f'
+          });
+        }
       }
       // Add responsive CSS for split view
       document.getElementById('split-md-style').textContent = `
