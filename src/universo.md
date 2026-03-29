@@ -9,8 +9,7 @@ $Ab7$ | $Bb4$
 Universo cruel   
 Vas destrozando sueños
 
-$Ebm$ ($Bb$ | $C$ | $Db$)  
-(x4)
+$Ebm$ ($Bb$ | $C$ | $Db$) $x4$  
 
 $Ebm$ ($Bb$ | $C$ | $Db$)  
 Transpiro por vos  
@@ -21,6 +20,8 @@ La que me va a suplicar
 $Ab7$ | $Bb4$  
 Mis heridas van  
 Cicatrizando ciclos
+
+$Ebm$ ($Bb$ | $C$ | $Db$) $x4$  
 
 $Ebm$ ($Bb$ | $C$ | $Db$)  
 Me dejo caer  
