@@ -9,7 +9,7 @@ $A\flat 7$ | $B\flat 4$
 Universo cruel   
 Vas destrozando sueños
 
-$E\flat m$ ($B\flat $ | $C$ | $Db$) $(x4)$  
+$E\flat m$ ($B\flat $ | $C$ | $Db$) $(x4)$
 
 $E\flat m$ ($B\flat $ | $C$ | $Db$)  
 Transpiro por vos  
@@ -21,7 +21,7 @@ $A\flat 7$ | $B\flat 4$
 Mis heridas van  
 Cicatrizando ciclos
 
-$E\flat m$ ($B\flat $ | $C$ | $Db$) $(x4)$  
+$E\flat m$ ($B\flat $ | $C$ | $Db$) $(x4)$
 
 $E\flat m$ ($B\flat $ | $C$ | $Db$)  
 Me dejo caer  
@@ -34,11 +34,13 @@ Paranoias van
 Alimentando miedos
 
 $E\flat m$ | $E\flat m7$ | $E\flat m6$ | $E\flat m$  
-$E\flat m$ | $E\flat m^{add9}$ | $E\flat m$ | $E\flat sus4$  
-$A\flat  7$ | $A\flat  7$ | $A\flat  7$ | $A\flat  7$  
-$E\flat m$ | $E\flat m$ | $A\flat m$ | $B\flat m$ $(x6)$  
+$E\flat m$ | $E\flat m^{add9}$ | $E\flat m$ | $E\flat sus4$
 
-$E\flat m$ ($B\flat $ | $C$ | $Db$) $(x4)$  
+$A\flat  7$ | $A\flat  7$ | $A\flat  7$ | $A\flat  7$
+
+$E\flat m$ | $E\flat m$ | $A\flat m$ | $B\flat m$ $(x6)$
+
+$E\flat m$ ($B\flat $ | $C$ | $Db$) $(x4)$
 
 $E\flat m$ ($B\flat $ | $C$ | $Db$)  
 Te debo dejar  
@@ -50,7 +52,7 @@ $A\flat 7$ | $B\flat 4$
 Hay mil peligros aquí  
 Y quien lastima sos vos
 
-$E\flat m$ ($B\flat $ | $C$ | $Db$) $(x4)$  
+$E\flat m$ ($B\flat $ | $C$ | $Db$) $(x4)$
 
 $E\flat m$ ($B\flat $ | $C$ | $Db$)  
 Pero al final  
@@ -66,4 +68,4 @@ $A\flat 7$ | $B\flat 4$
 Poco a poco voy  
 Dejando mas cenizas
 
-$E\flat m$ ($B\flat $ | $C$ | $Db$) $(x8)$  
+$E\flat m$ ($B\flat $ | $C$ | $Db$) $(x8)$
