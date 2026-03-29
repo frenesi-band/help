@@ -20,10 +20,76 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
+  --bg-body: var(--c5);
+  --text-body: var(--cream);
+  --nav-bg: rgba(11,31,40,0.85);
+  --nav-border: rgba(163,170,174,0.1);
+  --title-color: var(--cream);
+  --divider-color: rgba(163,170,174,0.25);
+  --md-text: var(--c1);
+  --md-heading: var(--cream);
+  --md-subheading: var(--warm);
+  --code-bg: rgba(163,170,174,0.08);
+  --pre-bg: rgba(11,31,40,0.6);
+  --pre-border: rgba(163,170,174,0.1);
+  --link-color: var(--warm);
+  --error-color: #f2a39f;
+  --stripe-color: rgba(163,170,174,0.06);
   min-height: 100vh;
-  background: var(--c5);
-  color: var(--cream);
+  background: var(--bg-body);
+  color: var(--text-body);
   font-family: 'Syne', sans-serif;
+}
+body.theme-light {
+  --bg-body: #f6f2ea;
+  --text-body: #1b242b;
+  --nav-bg: rgba(246,242,234,0.88);
+  --nav-border: rgba(39,50,60,0.18);
+  --title-color: #1b242b;
+  --divider-color: rgba(39,50,60,0.25);
+  --md-text: #2e3942;
+  --md-heading: #121a20;
+  --md-subheading: #4b5e6b;
+  --code-bg: rgba(39,50,60,0.08);
+  --pre-bg: rgba(39,50,60,0.08);
+  --pre-border: rgba(39,50,60,0.2);
+  --link-color: #1d4f76;
+  --error-color: #b3423a;
+  --stripe-color: rgba(39,50,60,0.08);
+}
+body.contrast-high {
+  --bg-body: #000000;
+  --text-body: #ffffff;
+  --nav-bg: rgba(0,0,0,0.96);
+  --nav-border: rgba(255,255,255,0.45);
+  --title-color: #ffffff;
+  --divider-color: rgba(255,255,255,0.5);
+  --md-text: #ffffff;
+  --md-heading: #ffffff;
+  --md-subheading: #ffe680;
+  --code-bg: rgba(255,255,255,0.18);
+  --pre-bg: rgba(255,255,255,0.08);
+  --pre-border: rgba(255,255,255,0.5);
+  --link-color: #6fdcff;
+  --error-color: #ff8d8d;
+  --stripe-color: rgba(255,255,255,0.16);
+}
+body.theme-light.contrast-high {
+  --bg-body: #ffffff;
+  --text-body: #000000;
+  --nav-bg: rgba(255,255,255,0.96);
+  --nav-border: rgba(0,0,0,0.45);
+  --title-color: #000000;
+  --divider-color: rgba(0,0,0,0.5);
+  --md-text: #000000;
+  --md-heading: #000000;
+  --md-subheading: #8a4f00;
+  --code-bg: rgba(0,0,0,0.12);
+  --pre-bg: rgba(0,0,0,0.08);
+  --pre-border: rgba(0,0,0,0.5);
+  --link-color: #003ea8;
+  --error-color: #b20000;
+  --stripe-color: rgba(0,0,0,0.16);
 }
 body::before {
   content: '';
@@ -43,8 +109,8 @@ body::after {
     to bottom,
     transparent 0px,
     transparent 36px,
-    rgba(163,170,174,0.06) 36px,
-    rgba(163,170,174,0.06) 37px
+    var(--stripe-color) 36px,
+    var(--stripe-color) 37px
   );
   pointer-events: none;
   z-index: 0;
@@ -55,10 +121,12 @@ nav {
   z-index: 10;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   padding: 1rem 2rem;
-  background: rgba(11,31,40,0.85);
+  background: var(--nav-bg);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(163,170,174,0.1);
+  border-bottom: 1px solid var(--nav-border);
 }
 .nav-back {
   display: inline-flex;
@@ -67,13 +135,64 @@ nav {
   font-family: 'Space Mono', monospace;
   font-size: 0.75rem;
   letter-spacing: 0.18em;
-  color: var(--c1);
+  color: var(--md-text);
   text-decoration: none;
   text-transform: uppercase;
 }
-.nav-back:hover { color: var(--cream); }
+.nav-back:hover { color: var(--title-color); }
 .nav-back svg { transition: transform 0.3s; }
 .nav-back:hover svg { transform: translateX(-3px); }
+.nav-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.switch-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 0.82rem;
+  color: var(--md-text);
+}
+.switch-control input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.switch-ui {
+  width: 2.25rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  border: 1px solid var(--nav-border);
+  background: rgba(127,127,127,0.2);
+  position: relative;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+.switch-ui::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background: var(--title-color);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+.switch-control input:checked + .switch-ui {
+  background: var(--link-color);
+  border-color: var(--link-color);
+}
+.switch-control input:checked + .switch-ui::after {
+  transform: translateX(1rem);
+}
+.switch-control input:focus-visible + .switch-ui {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
 .page {
   position: relative;
   z-index: 1;
@@ -89,13 +208,13 @@ nav {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(2.5rem, 6vw, 4rem);
   letter-spacing: 0.03em;
-  color: var(--cream);
+  color: var(--title-color);
   margin-bottom: 0.75rem;
 }
 .page-divider {
   border: none;
   height: 1px;
-  background: rgba(163,170,174,0.25);
+  background: var(--divider-color);
   margin: 0;
   width: 100%;
 }
@@ -109,10 +228,10 @@ nav {
 .error-state {
   font-family: 'Space Mono', monospace;
   font-size: 0.95rem;
-  color: #f2a39f;
+  color: var(--error-color);
   line-height: 1.7;
 }
-.md-content { color: var(--cream); line-height: 1.85; }
+.md-content { color: var(--md-heading); line-height: 1.85; }
 .md-content h1,
 .md-content h2,
 .md-content h3 {
@@ -122,20 +241,20 @@ nav {
 .md-content h1 {
   font-size: 2.1rem;
   letter-spacing: 0.01em;
-  color: var(--cream);
+  color: var(--md-heading);
   border-bottom: 1px solid rgba(163,170,174,0.15);
   padding-bottom: 0.8rem;
 }
 .md-content h2 {
   font-size: 1.4rem;
   font-weight: 700;
-  color: var(--cream);
+  color: var(--md-heading);
 }
 .md-content h3 {
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: var(--warm);
+  color: var(--md-subheading);
   text-transform: none;
 }
 .md-content p,
@@ -143,43 +262,46 @@ nav {
 .md-content td,
 .md-content th {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-  color: var(--c1);
+  color: var(--md-text);
 }
 .md-content p { margin-bottom: 1.25rem; }
 .md-content code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
   font-size: 0.9rem;
-  background: rgba(163,170,174,0.08);
+  background: var(--code-bg);
   padding: 0.15em 0.4em;
-  color: var(--warm);
+  color: var(--md-subheading);
 }
 .md-content pre {
-  background: rgba(11,31,40,0.6);
-  border: 1px solid rgba(163,170,174,0.1);
+  background: var(--pre-bg);
+  border: 1px solid var(--pre-border);
   padding: 1.2rem;
   overflow-x: auto;
   margin: 1.5rem 0;
 }
 .md-content blockquote {
-  border-left: 2px solid var(--warm);
+  border-left: 2px solid var(--md-subheading);
   padding-left: 1.2rem;
   margin: 1.5rem 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
   font-style: normal;
-  color: var(--c1);
+  color: var(--md-text);
 }
 .md-content a {
-  color: var(--warm);
+  color: var(--link-color);
   text-decoration: underline;
 }
 @media (max-width: 680px) {
   .page { padding: 6rem 1.2rem 4rem; }
   .page-title { font-size: 2.5rem; }
+  nav { padding: 0.9rem 1rem; }
+  .nav-controls { gap: 0.55rem; }
+  .switch-control { font-size: 0.75rem; }
 }
 .page-subtitle {
-  font-family: 'Syne', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
   font-size: 1.1rem;
-  color: var(--warm);
+  color: var(--md-subheading);
   margin-bottom: 0.5rem;
   margin-top: 0.2rem;
   letter-spacing: 0.01em;
@@ -192,6 +314,18 @@ nav {
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
     Volver
   </a>
+  <div class="nav-controls" aria-label="Opciones de visualizacion">
+    <label class="switch-control" for="theme-toggle">
+      <input id="theme-toggle" type="checkbox" role="switch" aria-label="Modo claro">
+      <span class="switch-ui" aria-hidden="true"></span>
+      Claro
+    </label>
+    <label class="switch-control" for="contrast-toggle">
+      <input id="contrast-toggle" type="checkbox" role="switch" aria-label="Alto contraste">
+      <span class="switch-ui" aria-hidden="true"></span>
+      Contraste +
+    </label>
+  </div>
 </nav>
 <main class="page">
   <header class="page-header">
@@ -217,6 +351,55 @@ function showError(message) {
   title.textContent = 'Error';
   container.innerHTML = `<div class="error-state">⚠ ${message}</div>`;
 }
+
+function setTheme(isLight) {
+  document.body.classList.toggle('theme-light', isLight);
+  try {
+    localStorage.setItem('viewer-theme-light', isLight ? '1' : '0');
+  } catch (_) {
+    // ignore storage errors in restricted contexts
+  }
+}
+
+function setHighContrast(isHigh) {
+  document.body.classList.toggle('contrast-high', isHigh);
+  try {
+    localStorage.setItem('viewer-contrast-high', isHigh ? '1' : '0');
+  } catch (_) {
+    // ignore storage errors in restricted contexts
+  }
+}
+
+function initAccessibilityToggles() {
+  const themeToggle = document.getElementById('theme-toggle');
+  const contrastToggle = document.getElementById('contrast-toggle');
+  if (!themeToggle || !contrastToggle) return;
+
+  let savedLight = '0';
+  let savedContrast = '0';
+  try {
+    savedLight = localStorage.getItem('viewer-theme-light') || '0';
+    savedContrast = localStorage.getItem('viewer-contrast-high') || '0';
+  } catch (_) {
+    // ignore storage errors in restricted contexts
+  }
+
+  const isLight = savedLight === '1';
+  const isHigh = savedContrast === '1';
+  themeToggle.checked = isLight;
+  contrastToggle.checked = isHigh;
+  setTheme(isLight);
+  setHighContrast(isHigh);
+
+  themeToggle.addEventListener('change', event => {
+    setTheme(Boolean(event.target.checked));
+  });
+  contrastToggle.addEventListener('change', event => {
+    setHighContrast(Boolean(event.target.checked));
+  });
+}
+
+initAccessibilityToggles();
 
 const file = getQueryParam('file');
 if (!file || !/\.md$/i.test(file)) {
