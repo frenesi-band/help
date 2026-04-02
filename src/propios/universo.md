@@ -1,5 +1,5 @@
 $126bpm|E\flat m|4/4$  
-$E\flat m$ ($B\flat $ | $C$ | $Db$)  
+$E\flat m$ ($B\flat $ | $C$ | $D\flat$)  
 A diario me das  
 Razones para olvidar  
 Las cosas que  
@@ -9,9 +9,9 @@ $A\flat 7$ | $B\flat 4$
 Universo cruel   
 Vas destrozando sueños
 
-$E\flat m$ ($B\flat $ | $C$ | $Db$) $(x4)$
+$E\flat m$ ($B\flat $ | $C$ | $D\flat$) $(x4)$
 
-$E\flat m$ ($B\flat $ | $C$ | $Db$)  
+$E\flat m$ ($B\flat $ | $C$ | $D\flat$)  
 Transpiro por vos  
 Y lloro por los demas  
 Se que no es tu voz  
@@ -21,9 +21,9 @@ $A\flat 7$ | $B\flat 4$
 Mis heridas van  
 Cicatrizando ciclos
 
-$E\flat m$ ($B\flat $ | $C$ | $Db$) $(x4)$
+$E\flat m$ ($B\flat $ | $C$ | $D\flat$) $(x4)$
 
-$E\flat m$ ($B\flat $ | $C$ | $Db$)  
+$E\flat m$ ($B\flat $ | $C$ | $D\flat$)  
 Me dejo caer  
 En tus brazos otra vez  
 Quizás esta vez  
@@ -40,9 +40,9 @@ $A\flat  7$ | $A\flat  7$ | $A\flat  7$ | $A\flat  7$
 
 $E\flat m$ | $E\flat m$ | $A\flat m$ | $B\flat m$ $(x6)$
 
-$E\flat m$ ($B\flat $ | $C$ | $Db$) $(x4)$
+$E\flat m$ ($B\flat $ | $C$ | $D\flat$) $(x4)$
 
-$E\flat m$ ($B\flat $ | $C$ | $Db$)  
+$E\flat m$ ($B\flat $ | $C$ | $D\flat$)  
 Te debo dejar  
 Mis notas y volverás  
 Buscando ayuda  
@@ -52,9 +52,9 @@ $A\flat 7$ | $B\flat 4$
 Hay mil peligros aquí  
 Y quien lastima sos vos
 
-$E\flat m$ ($B\flat $ | $C$ | $Db$) $(x4)$
+$E\flat m$ ($B\flat $ | $C$ | $D\flat$) $(x4)$
 
-$E\flat m$ ($B\flat $ | $C$ | $Db$)  
+$E\flat m$ ($B\flat $ | $C$ | $D\flat$)  
 Pero al final  
 Tu discípulo mas fiel  
 Lo vuelve a intentar  
@@ -68,4 +68,4 @@ $A\flat 7$ | $B\flat 4$
 Poco a poco voy  
 Dejando mas cenizas
 
-$E\flat m$ ($B\flat $ | $C$ | $Db$) $(x8)$
+$E\flat m$ ($B\flat $ | $C$ | $D\flat$) $(x8)$

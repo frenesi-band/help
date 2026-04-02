@@ -125,8 +125,6 @@ nav {
   flex-wrap: wrap;
 }
 
-.page-header-left {}
-
 .page-tag {
   font-family: 'Space Mono', monospace;
   font-size: 0.6rem;
@@ -714,9 +712,9 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMd(); }
 const MD_DIR = 'src/';
 
 // ← Añadí tus archivos .md aquí
-const FILES = [
+const MANUAL_FILES = [
   // 'cancion.md',
-  'corderos.md',
+  'propios/corderos.md',
   'universo.md',
 ];
 
@@ -725,7 +723,12 @@ const countEl = document.getElementById('count');
 const search  = document.getElementById('search');
 
 function basename(name) {
-  return name.replace(/\.md$/i, '').replace(/[-_]/g, ' ');
+  return name
+    .replace(/\\/g, '/')
+    .split('/')
+    .pop()
+    .replace(/\.md$/i, '')
+    .replace(/[-_]/g, ' ');
 }
 
 function titleCase(str) {
@@ -770,30 +773,45 @@ function render(files) {
 }
 
 async function fetchFromServer() {
-  try {
-    const res = await fetch(MD_DIR);
+  const files = new Set(MANUAL_FILES);
+
+  async function walk(dir = '') {
+    const res = await fetch(MD_DIR + dir);
     if (!res.ok) throw new Error('No se pudo leer el directorio');
+
     const html = await res.text();
-    const doc  = new DOMParser().parseFromString(html, 'text/html');
+    const doc = new DOMParser().parseFromString(html, 'text/html');
     const links = [...doc.querySelectorAll('a[href]')]
       .map(a => a.getAttribute('href'))
-      .filter(h => h.toLowerCase().endsWith('.md'))
-      .map(h => h.split('/').pop());
-    render(links);
-    search.addEventListener('input', () => render(links));
-  } catch (e) {
-    list.innerHTML = `<li><div class="error-state">⚠ ${e.message}<br>Verificá que tu servidor permita listar /src o usá la lista manual en el script.</div></li>`;
-    countEl.textContent = '';
+      .filter(Boolean)
+      .map(h => h.split(/[?#]/)[0])
+      .filter(h => h !== '../' && h !== './' && h !== '/');
+
+    for (const href of links) {
+      if (href.toLowerCase().endsWith('.md')) {
+        files.add(dir + href);
+      } else if (href.endsWith('/')) {
+        await walk(dir + href);
+      }
+    }
   }
+
+  try {
+    await walk();
+  } catch (e) {
+    if (!files.size) {
+      list.innerHTML = `<li><div class="error-state">⚠ ${e.message}<br>Verificá que tu servidor permita listar /src o usá la lista manual en el script.</div></li>`;
+      countEl.textContent = '';
+      return;
+    }
+  }
+
+  const orderedFiles = [...files].sort((a, b) => a.localeCompare(b, 'es'));
+  render(orderedFiles);
+  search.addEventListener('input', () => render(orderedFiles));
 }
 
-if (FILES.length) {
-  render(FILES);
-  search.addEventListener('input', () => render(FILES));
-} else {
-  fetchFromServer();
-  search.addEventListener('input', () => fetchFromServer());
-}
+fetchFromServer();
 </script>
 </body>
 </html>

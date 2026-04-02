@@ -410,7 +410,7 @@ if (!file || !/\.md$/i.test(file)) {
   showError('No se especificó un archivo Markdown válido en la URL.');
 } else {
   const title = document.getElementById('page-title');
-  title.textContent = titleCase(file.replace(/\.md$/i, '').replace(/[-_]/g, ' '));
+  title.textContent = titleCase(file.replace(/\\/g, '/').split('/').pop().replace(/\.md$/i, '').replace(/[-_]/g, ' '));
   const container = document.getElementById('md-container');
   container.innerHTML = '<p class="error-state">Cargando markdown…</p>';
 
